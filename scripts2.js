@@ -102,6 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Update the table every 0.3 seconds
-    setInterval(updateTable, 300);
+    // Initial table update
+    updateTable();
+
+    // Listen for storage events to update the table
+    window.addEventListener('storage', updateTable);
 });
