@@ -1,0 +1,355 @@
+/* Página em branco */
+
+body {
+    font-family: 'Sora', sans-serif;
+    background-color: #f0f8ff; /* Azul claro quase branco */
+    text-align: center;
+    padding: 0; /* Remover padding */
+    margin: 0; /* Remover margem */
+}
+
+header {
+    background-color: #fff;
+    padding: 20px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05); /* Reduzir a sombra e opacidade */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+header img {
+    height: 30px;
+    padding-left: 40px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaço entre os retângulos */
+    padding-top: 100px; /* Aumentar espaço abaixo do cabeçalho */
+    padding-left: 20px; /* Espaço nas laterais */
+    padding-right: 20px; /* Espaço nas laterais */
+}
+
+.Retangulo-Caixa, .Retangulo-Vendas, .Retangulo-Gastos, .Receita-Mes, .Retangulo-Investimento {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #fff;
+    /* border: 1px solid #ccc; Remover o contorno */
+    padding: 20px;
+    flex: 1; /* Ajustar largura para preencher mais */
+    max-width: 225px; /* Aumentar um pouco a largura máxima */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05); /* Reduzir a sombra e opacidade */
+    text-align: left; /* Alinhar o texto à esquerda */
+    border-radius: 7px; /* Arredondar os cantos */
+    margin-bottom: -80px;
+}
+
+.Retangulo-Gastos .icon img {
+    filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(0deg) brightness(100%) contrast(100%); /* Ajustar cor do SVG para laranja */
+}
+
+.Retangulo-Investimento .icon img, .Receita-Mes .icon img {
+    filter: invert(21%) sepia(100%) saturate(7496%) hue-rotate(90deg) brightness(50%) contrast(119%); /* Ajustar cor do SVG para verde escuro */
+}
+
+.Retangulo-Investimento .content h2, .Receita-Mes .content h2 {
+    color: #006400; /* Verde escuro */
+}
+
+.Lancamento-Geral {
+    display: flex;
+    flex-direction: column; /* Alterar para coluna */
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #fff;
+    padding: 20px;
+    width: calc(70% - 5px); /* Aumentar a largura */
+    max-width: 852px; /* Aumentar a largura máxima */
+    text-align: left; /* Alinhar o texto à esquerda */
+    border-radius: 7px; /* Arredondar os cantos */
+    margin: 20px 5px; /* Reduzir a margem entre os retângulos */
+    margin-top: 20px; /* Reduzir a margem superior */
+}
+
+.Lancamento-Geral .inputs {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px; /* Espaço entre o título e os inputs */
+}
+
+.Lancamento-Geral input, .Lancamento-Geral select {
+    margin: 10px 5px; /* Espaço entre os inputs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    height: 40px; /* Ajustar a altura para ser igual aos outros inputs */
+    color: #333; /* Garantir que o texto do placeholder apareça */
+}
+
+.Lancamento-Geral input::placeholder, .Lancamento-Geral select::placeholder {
+    color: #999; /* Cor do placeholder */
+}
+
+.Lancamento-Geral input[placeholder="Data"] {
+    width: calc(15% - 10px); /* Ajustar largura para ser menor */
+}
+
+.Lancamento-Geral input[placeholder="Tipo"] {
+    width: calc(15% - 10px); /* Ajustar largura para ser menor */
+}
+
+.Lancamento-Geral input[placeholder="Descrição"] {
+    width: calc(35% - 10px); /* Ajustar largura para ser mais largo */
+}
+
+.Lancamento-Geral input[placeholder="Qtd"] {
+    width: calc(10% - 10px); /* Ajustar largura para ser menor */
+}
+
+.Lancamento-Geral input[placeholder="Valor"] {
+    width: calc(15% - 10px);
+}
+
+.Lancamento-Geral button {
+    background-color: #006400; /* Verde escuro */
+    color: #fff; /* Texto branco */
+    font-weight: bold; /* Fonte bold */
+    padding: 10px 20px;
+    border: none; /* Remover bordas */
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 5px; /* Espaço entre o botão e os inputs */
+}
+
+.Lancamento-Geral .divider {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc; /* Cor cinza */
+    margin: 20px 0; /* Espaço acima e abaixo da linha */
+}
+
+.Lancamento-Geral .texts {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px; /* Espaço entre o título e os textos */
+}
+
+.Lancamento-Geral .texts span {
+    width: 20%; /* Ajustar largura para cinco textos lado a lado */
+    margin: 5px 0; /* Espaço entre os textos */
+    text-align: left; /* Alinhar o texto à esquerda */
+    font-size: 14px; /* Diminuir o tamanho da fonte */
+    color: #333;
+    font-weight: bold; /* Texto em negrito */
+}
+
+.Lancamento-Geral .texts .title {
+    margin-right: 4px; /* Ajustar a distância entre os títulos */
+}
+
+.Lancamento-Geral table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px; /* Espaço acima da tabela */
+    max-height: 320px; /* Altura máxima para 8 linhas */
+    overflow-y: auto; /* Adicionar barra de rolagem vertical */
+    display: block; /* Permitir rolagem */
+}
+
+/* Estilizar a barra de rolagem */
+.Lancamento-Geral table::-webkit-scrollbar {
+    width: 8px; /* Largura da barra de rolagem */
+}
+
+.Lancamento-Geral table::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Cor do fundo da barra de rolagem */
+}
+
+.Lancamento-Geral table::-webkit-scrollbar-thumb {
+    background: #e3e3e3; /* Cor da barra de rolagem */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+.Lancamento-Geral table::-webkit-scrollbar-thumb:hover {
+    background: #dfdfdf; /* Cor da barra de rolagem ao passar o mouse */
+}
+
+.Lancamento-Geral table, .Lancamento-Geral th, .Lancamento-Geral td {
+    border: 1px solid #ccc; /* Adicionar bordas */
+    border-left: none; /* Remover bordas verticais */
+    border-right: none; /* Remover bordas verticais */
+}
+
+.Lancamento-Geral th, .Lancamento-Geral td {
+    padding: 10px;
+    text-align: left; /* Alinhar o texto à esquerda */
+    font-size: 14px; /* Diminuir o tamanho da fonte */
+    border: none; /* Remover bordas internas */
+}
+
+.Lancamento-Geral th {
+    background-color: #f0f0f0; /* Cor de fundo para o cabeçalho */
+    font-weight: bold; /* Texto em negrito */
+}
+
+.Lancamento-Geral td:nth-child(1) {
+    width: 20%; /* Ajustar a largura da coluna de data */
+}
+
+.Lancamento-Geral td:nth-child(2) {
+    width: 15%; /* Ajustar a largura da coluna de tipo */
+}
+
+.Lancamento-Geral td:nth-child(3) {
+    width: 35%; /* Ajustar a largura da coluna de descrição */
+    white-space: nowrap; /* Impedir quebra de linha */
+    overflow: hidden; /* Ocultar texto excedente */
+    text-overflow: ellipsis; /* Adicionar reticências ao texto excedente */
+}
+
+.Lancamento-Geral td:nth-child(4) {
+    width: 10%; /* Ajustar a largura da coluna de quantidade */
+}
+
+.Lancamento-Geral td:nth-child(5) {
+    width: 20%; /* Ajustar a largura da coluna de valor */
+}
+
+.Lancamento-Geral td:nth-child(6) {
+    width: 60%; /* Ajustar a largura da coluna de ação */
+}
+
+.Lancamento-Geral tr:nth-child(even) {
+    background-color: #f9f9f9; /* Cor de fundo cinza claro para linhas pares */
+}
+
+.Lancamento-Geral tr:nth-child(odd) {
+    background-color: #fff; /* Cor de fundo branca para linhas ímpares */
+}
+
+.Lancamento-Geral .action-icons {
+    display: flex;
+    gap: 18px; /* Espaço entre os ícones */
+    border: none; /* Remover bordas internas */
+}
+
+.Lancamento-Geral .action-icons img {
+    width: 14px; /* Tamanho dos ícones */
+    height: 14px;
+    cursor: pointer;
+    filter: grayscale(100%); /* Cor cinza para os ícones */
+}
+
+.Relatorio-2025 {
+    display: flex;
+    flex-direction: column; /* Alterar para coluna */
+    align-items: flex-start;
+    justify-content: flex-start; /* Alinhar ao topo */
+    background-color: #fff;
+    padding: 20px;
+    width: calc(30% - 5px); /* Diminuir a largura */
+    max-width: 435px; /* Diminuir a largura máxima */
+    text-align: left; /* Alinhar o texto à esquerda */
+    border-radius: 7px; /* Arredondar os cantos */
+    margin: 20px 5px; /* Reduzir a margem entre os retângulos */
+    margin-top: 20px; /* Reduzir a margem superior */
+    clear: both; /* Garantir que o retângulo seja independente */
+}
+
+.Relatorio-2025 .content {
+    width: 100%;
+}
+
+.Relatorio-2025 .title {
+    margin-bottom: 20px; /* Espaço maior abaixo do título */
+}
+
+.Relatorio-2025 table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.Relatorio-2025 th, .Relatorio-2025 td {
+    border: 1px solid #ccc;
+    padding: 8px; /* Aumentar um pouco o padding para linhas maiores */
+    text-align: left;
+    font-size: 12px; /* Diminuir o tamanho da fonte */
+}
+
+.Relatorio-2025 th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.Lancamento-Geral, .Relatorio-2025 {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05); /* Reduzir a sombra e opacidade */
+}
+
+.icon img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    fill: #00008B; /* Aplicar cor ao SVG */
+    filter: invert(11%) sepia(100%) saturate(7496%) hue-rotate(240deg) brightness(50%) contrast(119%); /* Ajustar cor do SVG */
+}
+
+.blue-icon {
+    color: #00008B; /* Azul escuro */
+}
+
+.orange-icon {
+    color: #FFA500; /* Laranja */
+}
+
+.content h2 {
+    margin: 0;
+    font-size: 16px; /* Diminuir o tamanho da fonte */
+    color: #333;
+}
+
+.content .bold {
+    font-weight: 700;
+}
+
+.blue-text {
+    color: #00008B; /* Azul escuro */
+}
+
+.orange-text {
+    color: #FFA500; /* Laranja */
+}
+
+.content .light {
+    font-weight: 300;
+    color: #999;
+}
+
+.content p {
+    margin: 5px 0 0;
+    font-size: 14px; /* Diminuir o tamanho da fonte */
+    font-weight: 300;
+    color: #00008B; /* Azul escuro */
+}
+
+.fluxo-button {
+    background-color: #006400; /* Verde escuro */
+    color: #fff; /* Texto branco */
+    font-weight: bold; /* Fonte bold */
+    padding: 10px 20px;
+    border: none; /* Remover bordas */
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px; /* Espaço acima do botão */
+    display: block;
+    width: 100%; /* Largura total */
+    text-align: center; /* Centralizar texto */
+}

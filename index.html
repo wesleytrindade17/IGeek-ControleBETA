@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="icons/igeek-logo.svg" alt="IGeek Logo">
+    </header>
+    <!-- Página em branco -->
+    <div class="container">
+        <div class="Retangulo-Caixa">
+            <div class="icon">
+                <!-- Ícone de dinheiro -->
+                <img src="icons/money-svgrepo-com.svg" alt="Ícone de dinheiro" class="blue-icon">
+            </div>
+            <div class="content">
+                <h2><span class="bold blue-text">Caixa</span><span class="light"> | ano</span></h2>
+                <p class="light">R$ 100,00</p>
+            </div>
+        </div>
+        <div class="Retangulo-Vendas">
+            <div class="icon">
+                <!-- Ícone de fazer dinheiro -->
+                <img src="icons/make-money.svg" alt="Ícone de fazer dinheiro" class="blue-icon">
+            </div>
+            <div class="content">
+                <h2><span class="bold blue-text">Vendas</span><span class="light"> | ano</span></h2>
+                <p class="light">R$ 200,00</p>
+            </div>
+        </div>
+        <div class="Retangulo-Gastos">
+            <div class="icon">
+                <!-- Ícone de euro -->
+                <img src="icons/euro.svg" alt="Ícone de euro" class="orange-icon">
+            </div>
+            <div class="content">
+                <h2><span class="bold orange-text">Gastos</span><span class="light"> | ano</span></h2>
+                <p class="light orange-text">R$ 150,00</p>
+            </div>
+        </div>
+        <div class="Retangulo-Investimento">
+            <div class="icon">
+                <!-- Ícone de euro -->
+                <img src="icons/euro.svg" alt="Ícone de euro" class="orange-icon">
+            </div>
+            <div class="content">
+                <h2><span class="bold green-text">Vendas</span><span class="light"> | mês</span></h2>
+                <p class="light green-text">R$ 150,00</p>
+            </div>
+        </div>
+        <div class="Receita-Mes">
+            <div class="icon">
+                <!-- Ícone de dinheiro -->
+                <img src="icons/money-svgrepo-com.svg" alt="Ícone de dinheiro" class="blue-icon">
+            </div>
+            <div class="content">
+                <h2><span class="bold green-text">Receita</span><span class="light"> | mês</span></h2>
+                <p class="light green-text">R$ 300,00</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="Lancamento-Geral">
+            <div class="content">
+                <h2><span class="bold blue-text">Lançamento</span><span class="light"> | geral</span></h2>
+                <div class="inputs">
+                    <input type="date" placeholder="Data">
+                    <select placeholder="Tipo">
+                        <option value="Compra">Compra</option>
+                        <option value="Venda">Venda</option>
+                        <option value="Investimento">Investimento</option>
+                    </select>
+                    <input type="text" placeholder="Descrição">
+                    <input type="number" placeholder="Qtd">
+                    <input type="text" placeholder="Valor">
+                    <button>Lançar</button>
+                </div>
+                <div class="divider"></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Tipo</th>
+                            <th>Descrição</th>
+                            <th>Qtd</th>
+                            <th>Valor</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="Relatorio-2025">
+            <div class="content">
+                <div class="title">
+                    <h2><span class="bold blue-text">Relatório</span><span class="light"> | 2025</span></h2>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mês</th>
+                            <th>Vendas</th>
+                            <th>Gastos</th>
+                            <th>Investimento</th>
+                            <th>Caixa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Jan</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Fev</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Mar</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Abr</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Mai</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Jun</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Jul</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Ago</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Set</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Out</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Nov</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Dez</td><td></td><td></td><td></td><td></td></tr>
+                    </tbody>
+                </table>
+                <button onclick="window.location.href='index2.html'" class="fluxo-button">Ir para Fluxo</button>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
