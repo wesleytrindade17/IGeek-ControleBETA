@@ -46,8 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${qtd}</td>
             <td>${formattedValue}</td>
             <td class="action-icons">
-                <img src="icons/edit.svg" alt="Editar" class="edit-icon">
-                <img src="icons/delete.svg" alt="Excluir" class="delete-icon">
+                <img src="edit.svg" alt="Editar" class="edit-icon">
+                <img src="delete.svg" alt="Excluir" class="delete-icon">
             </td>
         `;
 
