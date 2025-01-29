@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const caixaAnoElement = document.querySelector('.Retangulo-Caixa .content p');
     const vendasAnoElement = document.querySelector('.Retangulo-Vendas .content p');
     const gastosAnoElement = document.querySelector('.Retangulo-Gastos .content p');
+    const vendasMesElement = document.querySelector('.Retangulo-Investimento .content p');
+    const receitaMesElement = document.querySelector('.Receita-Mes .content p');
 
     lancarButton.addEventListener('click', () => {
         let data = document.querySelector('input[placeholder="Data"]').value;
@@ -46,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${qtd}</td>
             <td>${formattedValue}</td>
             <td class="action-icons">
-                <img src="edit.svg" alt="Editar" class="edit-icon">
-                <img src="delete.svg" alt="Excluir" class="delete-icon">
+                <img src="icons/edit.svg" alt="Editar" class="edit-icon">
+                <img src="icons/delete.svg" alt="Excluir" class="delete-icon">
             </td>
         `;
 
@@ -142,6 +144,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let totalCaixaAno = 0;
         let totalVendasAno = 0;
         let totalGastosAno = 0;
+        let vendasMesAtual = 0;
+        let gastosMesAtual = 0;
+
+        const currentMonthName = getMonthName(new Date().getMonth() + 1);
 
         // Update the "Relatório" table
         relatorioRows.forEach(row => {
@@ -156,13 +162,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 totalCaixaAno += totalCaixa;
                 totalVendasAno += monthlyData[month].vendas;
                 totalGastosAno += monthlyData[month].gastos;
+
+                if (month === currentMonthName) {
+                    vendasMesAtual = monthlyData[month].vendas;
+                    gastosMesAtual = monthlyData[month].gastos;
+                }
             }
         });
 
-        // Update the "Caixa | ano", "Vendas | ano", and "Gastos | ano" sections
+        // Update the "Caixa | ano", "Vendas | ano", "Gastos | ano", "Vendas | mês", and "Receita | mês" sections
         caixaAnoElement.innerText = `R$ ${totalCaixaAno.toFixed(2).replace('.', ',')}`;
         vendasAnoElement.innerText = `R$ ${totalVendasAno.toFixed(2).replace('.', ',')}`;
         gastosAnoElement.innerText = `R$ ${totalGastosAno.toFixed(2).replace('.', ',')}`;
+        vendasMesElement.innerText = `R$ ${vendasMesAtual.toFixed(2).replace('.', ',')}`;
+        receitaMesElement.innerText = `R$ ${(vendasMesAtual - gastosMesAtual).toFixed(2).replace('.', ',')}`;
     }
 
     function getMonthName(monthIndex) {
