@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Initial table update
+    // Initial table update when the page is loaded
     updateTable();
 
     // Listen for storage events to update the table
