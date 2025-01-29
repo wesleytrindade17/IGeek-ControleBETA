@@ -111,6 +111,20 @@ document.addEventListener('DOMContentLoaded', () => {
         window.dispatchEvent(new Event('storage'));
     }
 
+    function animateValue(element, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const value = start + progress * (end - start);
+            element.innerText = `R$ ${value.toFixed(2).replace('.', ',')}`;
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+
     function updateRelatorio() {
         const rows = JSON.parse(localStorage.getItem('tableData')) || [];
         const monthlyData = {};
@@ -146,6 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let totalGastosAno = 0;
         let vendasMesAtual = 0;
         let gastosMesAtual = 0;
+        let investimentoMesAtual = 0;
 
         const currentMonthName = getMonthName(new Date().getMonth() + 1);
 
@@ -166,16 +181,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (month === currentMonthName) {
                     vendasMesAtual = monthlyData[month].vendas;
                     gastosMesAtual = monthlyData[month].gastos;
+                    investimentoMesAtual = monthlyData[month].investimento;
                 }
             }
         });
 
-        // Update the "Caixa | ano", "Vendas | ano", "Gastos | ano", "Vendas | mês", and "Receita | mês" sections
-        caixaAnoElement.innerText = `R$ ${totalCaixaAno.toFixed(2).replace('.', ',')}`;
-        vendasAnoElement.innerText = `R$ ${totalVendasAno.toFixed(2).replace('.', ',')}`;
-        gastosAnoElement.innerText = `R$ ${totalGastosAno.toFixed(2).replace('.', ',')}`;
-        vendasMesElement.innerText = `R$ ${vendasMesAtual.toFixed(2).replace('.', ',')}`;
-        receitaMesElement.innerText = `R$ ${(vendasMesAtual - gastosMesAtual).toFixed(2).replace('.', ',')}`;
+        // Update the "Caixa | ano", "Vendas | ano", "Gastos | ano", "Vendas | mês", and "Receita | mês" sections with animation
+        animateValue(caixaAnoElement, parseFloat(caixaAnoElement.innerText.replace('R$ ', '').replace(',', '.')), totalCaixaAno, 1000);
+        animateValue(vendasAnoElement, parseFloat(vendasAnoElement.innerText.replace('R$ ', '').replace(',', '.')), totalVendasAno, 1000);
+        animateValue(gastosAnoElement, parseFloat(gastosAnoElement.innerText.replace('R$ ', '').replace(',', '.')), totalGastosAno, 1000);
+        animateValue(vendasMesElement, parseFloat(vendasMesElement.innerText.replace('R$ ', '').replace(',', '.')), vendasMesAtual, 1000);
+        animateValue(receitaMesElement, parseFloat(receitaMesElement.innerText.replace('R$ ', '').replace(',', '.')), vendasMesAtual + investimentoMesAtual - gastosMesAtual, 1000);
     }
 
     function getMonthName(monthIndex) {
