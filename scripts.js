@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let tipo = document.querySelector('select[placeholder="Tipo"]').value;
         let descricao = document.querySelector('input[placeholder="Descrição"]').value;
         let qtd = document.querySelector('input[placeholder="Qtd"]').value;
-        let valor = document.querySelector('input[placeholder="Valor"]').value;
+        let valor = document.querySelector('input[placeholder="Valor"]').value.replace(',', '.'); // Replace comma with dot
 
         // Set default values if inputs are empty
         if (!data) {
