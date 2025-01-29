@@ -105,6 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         });
         localStorage.setItem('tableData', JSON.stringify(rows));
+        // Trigger storage event manually
+        window.dispatchEvent(new Event('storage'));
     }
 
     function updateRelatorio() {
